@@ -2,23 +2,23 @@
 
 ## DataInput Encoding/Decoding module
 
-Package github.com/juzzeast/clickhouse/diproto exports two functions:
-Encode(diproto.DataInput) ([]byte, error)
-Decode([]byte) (diproto.DataInput, error)
+Package **github.com/juzzeast/clickhouse/diproto** exports two functions:  
+Encode(diproto.DataInput) ([]byte, error)  
+Decode([]byte) (diproto.DataInput, error)  
 
-and a **DataInput** type (effectively, alias to []interface{}).
+and a **DataInput** type (effectively, alias to **[]interface{}**).
 
-To be successfully encoded, **DataInput** var should ONLY contain elements of types string, int32 and nested **DataInput** itself.
+To be successfully encoded, **DataInput** var should ONLY contain elements of types string, int32 and nested **DataInput** itself.  
 If any element of different type is present, Encode will return error.
 
 ## DataInput Encoding/Decoding protocol
 
 For space optimization and encoding/decoding performance, the **DataInput** instances are being incoded into binary format.
 
-Every record (item) is preceeding with a type code (1 byte). **DataInput** itself has a code 255 (math.MaxUint8).
-For fixed-length type (*int32*) it follows with value.
-For variable length (*string*) it follows with length coded in bytes, then byte representation of data.
-For nested self (*DataInput*), it follows with elements count, then encoded **DataInput**.
+Every record (item) is preceeding with a type code (1 byte). **DataInput** itself has a code 255 (math.MaxUint8).  
+For fixed-length type (*int32*) it follows with value.  
+For variable length (*string*) it follows with length coded in bytes, then byte representation of data.  
+For nested self (*DataInput*), it follows with elements count, then encoded **DataInput**.  
 
 The encoding protocol specification (also included into types.go):
 ```
