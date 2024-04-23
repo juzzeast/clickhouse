@@ -3,8 +3,8 @@
 ## DataInput Encoding/Decoding module
 
 Package **github.com/juzzeast/clickhouse/diproto** exports two functions:  
-Encode(diproto.DataInput) ([]byte, error)  
-Decode([]byte) (diproto.DataInput, error)  
+**Encode**(diproto.DataInput) ([]byte, error)  
+**Decode**([]byte) (diproto.DataInput, error)  
 
 and a **DataInput** type (effectively, alias to **[]interface{}**).
 
