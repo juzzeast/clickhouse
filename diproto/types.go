@@ -9,6 +9,12 @@ const (
 	di_type_di     byte = byte(255)
 )
 
+// Thresholds upon DataInput size & strtig element size
+const (
+	max_di_size     int = 1000
+	max_string_size int = 1000000
+)
+
 /* Encoding protocol:
 
 <encoded-datainput> ::= <type-code> <payload>

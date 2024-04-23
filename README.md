@@ -11,6 +11,10 @@ and a **DataInput** type (effectively, alias to []interface{}).
 To be successfully encoded, **DataInput** var should ONLY contain elements of types string, int32 and nested **DataInput** itself.
 If any element of different type is present, Encode will return error.
 
+String elements longer than 1,000,000 symbols are not permitted.
+DataInput slices longer than 1000 elements are not permitted either.
+Bot cases will result in an error.
+
 ## DataInput Encoding/Decoding protocol
 
 For space optimization and encoding/decoding performance, the **DataInput** instances are being incoded into binary format.

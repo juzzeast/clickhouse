@@ -10,6 +10,9 @@ import (
 // Supports values of string, int32 and (nested) DataInput types, any other would result in an error
 func Encode(di DataInput) ([]byte, error) {
 	var r []byte
+	if len(di) > max_di_size {
+		return r, errors.New("can't encode DataInput: size exceeds limit")
+	}
 	r = append(r, di_type_di)
 	diLen := int16(len(di))
 	bdiLen := int16ToBytes(diLen)
@@ -23,6 +26,9 @@ func Encode(di DataInput) ([]byte, error) {
 			r = append(r, bi32...)
 		case "string":
 			str := v.(string)
+			if len(str) > max_string_size {
+				return r, errors.New("can't encode string element: size exceeds limit")
+			}
 			bstr := encodeStr(str)
 			r = append(r, bstr...)
 		case "diproto.DataInput":
