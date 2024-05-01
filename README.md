@@ -1,3 +1,6 @@
+Interview assessment project, the task was to develop a lean, minimum-overhead data transfer protocol for mixed-type arrays containing integers, strings & self (nested array of same type).
+The condition was not to use any built-in Go encoding/decoding libraries.
+
 # DIProto
 
 ## DataInput Encoding/Decoding module
