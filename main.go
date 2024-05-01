@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/juzzeast/clickhouse/diproto"
+	"github.com/juzzeast/dataprotocol/diproto"
 )
 
 func main() {
