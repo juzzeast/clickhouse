@@ -5,7 +5,7 @@ The condition was not to use any built-in Go encoding/decoding libraries.
 
 ## DataInput Encoding/Decoding module
 
-Package **github.com/juzzeast/clickhouse/diproto** exports two functions:  
+Package **github.com/juzzeast/dataprotocol/diproto** exports two functions:  
 **Encode**(diproto.DataInput) ([]byte, error)  
 **Decode**([]byte) (diproto.DataInput, error)  
 
